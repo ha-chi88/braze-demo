@@ -1,5 +1,8 @@
 {
   "$schema": "https://biomejs.dev/schemas/2.3.8/schema.json",
+  "files": {
+    "includes": ["app/**"]
+  },
   "linter": {
     "enabled": true,
     "rules": {
@@ -13,7 +16,6 @@
     "enabled": true,
     "formatWithErrors": false,
     "indentStyle": "space",
-    "lineWidth": 80,
-    "ignore": ["components/BrazeContentCards.tsx"]
+    "lineWidth": 80
   }
 }

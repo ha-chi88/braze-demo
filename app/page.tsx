@@ -7,10 +7,13 @@ export default function Page() {
   const [cards, setCards] = useState<braze.Card[]>([]);
 
   useEffect(() => {
-    const initResult = braze.initialize(process.env.NEXT_PUBLIC_BRAZE_API_KEY!, {
-      baseUrl: process.env.NEXT_PUBLIC_BRAZE_SDK_ENDPOINT!,
-      enableLogging: true,
-    });
+    const initResult = braze.initialize(
+      process.env.NEXT_PUBLIC_BRAZE_API_KEY!,
+      {
+        baseUrl: process.env.NEXT_PUBLIC_BRAZE_SDK_ENDPOINT!,
+        enableLogging: true,
+      },
+    );
 
     if (initResult) {
       braze.changeUser("test-user-id");
