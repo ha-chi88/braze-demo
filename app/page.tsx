@@ -17,11 +17,17 @@ export default function Page() {
 
     if (initResult) {
       braze.changeUser("test-user-id");
-      braze.subscribeToContentCardsUpdates((updates) => {
+      braze.openSession();
+      const subscriptionId = braze.subscribeToContentCardsUpdates((updates) => {
         setCards(updates.cards);
       });
       braze.requestContentCardsRefresh();
-      braze.openSession();
+      
+      return () => {
+        if (subscriptionId) {
+          braze.removeSubscription(subscriptionId);
+        }
+      };
     }
   }, []);
 
